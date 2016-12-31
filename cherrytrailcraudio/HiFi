@@ -133,7 +133,7 @@ SectionVerb {
 		cset "name='Stereo DAC MIXL DAC L1 Switch' off"
 		cset "name='Stereo DAC MIXR DAC R1 Switch' off"
 
-		cset "name='HP Playback Volume' 25%"  #INVERTED
+		cset "name='HP Playback Volume' 15%"  #INVERTED
 		cset "name='HP Playback Switch' off"  #INVERTED
 		cset "name='HPO MIX DAC1 Switch' off"
 		cset "name='HPO MIX HPVOL Switch' on"
