@@ -153,7 +153,7 @@ SectionVerb {
 }
 
 SectionDevice."DigitalMics" {
- 	Comment "Internal DigitalMics capture (NOT WORKED)"
+ 	Comment "Internal Digital-Mics capture (NOT WORKED)"
  	ConflictingDevice [
  		"InternalMics"
  		"HeadsetMic"
@@ -177,7 +177,7 @@ SectionDevice."DigitalMics" {
  	]
 
 	Value {
-		CaptureChannels 2
+		CaptureChannels "2"
 	}
 }
 
@@ -186,7 +186,7 @@ SectionDevice."HeadsetMic" {
 
 	ConflictingDevice [
 		"InternalMics"
-		"Headset Mic"
+		"DigitalMics"
 	]
 
 	EnableSequence [
@@ -211,16 +211,16 @@ SectionDevice."HeadsetMic" {
 	]
 
 	Value {
-		CaptureChannels 2
+		CaptureChannels "2"
 	}
 }
 
 SectionDevice."InternalMics" {
-	Comment "Internal analog Mic capture (NOT WORKED)"
+	Comment "Internal Analog-Mics capture (NOT WORKED)"
 
 	ConflictingDevice [
 		"DigitalMics"
-		"Headset Mic"
+		"HeadsetMic"
 	]
 
 	EnableSequence [
@@ -235,8 +235,6 @@ SectionDevice."InternalMics" {
 
 		cset "name='Mono ADC MIXL ADC1 Switch' on"
 		cset "name='Mono ADC MIXR ADC1 Switch' on"
-
-		cset "name='Mono ADC Capture Switch' on"
 	]
 
 	DisableSequence [
@@ -250,7 +248,7 @@ SectionDevice."InternalMics" {
 	]
 
 	Value {
-		CaptureChannels 2
+		CaptureChannels "2"
 	}
 }
 
