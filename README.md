@@ -15,3 +15,9 @@ https://github.com/amuramatsu/debian-kernel-mod/tree/portabook
     - つまり、ヘッドフォンとスピーカは手動で変更する必要があります。
 
 録音ができないのは、単に mixer 設定がわからないためです。
+
+* cherrytrailcraudio
+  Kernel 4.8 用
+
+* cherrytrailcraudio44
+  Kernel 4.4 用（いくつかの mute / volume が反転しています）

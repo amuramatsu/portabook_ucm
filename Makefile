@@ -4,7 +4,7 @@ TARGET = cherrytrailcraudio
 TARGET44 = cherrytrailcraudio44
 ALSA_UCM_DIR = /usr/share/alsa/ucm
 
-KERNEL_VER = $(uname -r | cut -b 1-3)
+KERNEL_VER = $(shell uname -r | cut -b 1-3)
 
 install:
 	rm -rf $(ALSA_UCM_DIR)/$(TARGET)
