@@ -153,39 +153,35 @@ SectionVerb {
 }
 
 SectionDevice."DigitalMics" {
- 	Comment "Internal Digital-Mics capture (NOT WORKED)"
+ 	Comment "Internal Digital-Mics capture"
  	ConflictingDevice [
- 		"InternalMics"
  		"HeadsetMic"
  	]
 
  	EnableSequence [
  		cdev "hw:cherrytrailcrau"
-
-		cset "name='Stereo2 ADC R2 Mux' DMIC"
-		cset "name='Sto1 ADC MIXL ADC2 Switch' on"
-		cset "name='Sto1 ADC MIXR ADC2 Switch' on"
+		cset "name='Stereo1 ADC L2 Mux' DMIC"
+		cset "name='Stereo1 ADC R2 Mux' DMIC"
+		cset "name='Stereo1 DMIC Mux' DMIC2"
 		cset "name='Int Mic Switch' on"
  	]
 
  	DisableSequence [
  		cdev "hw:cherrytrailcrau"
-
-		cset "name='Sto1 ADC MIXL ADC2 Switch' off"
-		cset "name='Sto1 ADC MIXR ADC2 Switch' off"
+		cset "name='Stereo1 ADC L2 Mux' DAC MIX"
+		cset "name='Stereo1 ADC R2 Mux' DAC MIX"
 		cset "name='Int Mic Switch' off"
  	]
 
 	Value {
-		CaptureChannels "2"
+		CaptureChannels "1"
 	}
 }
 
 SectionDevice."HeadsetMic" {
- 	Comment "Headset Mic capture (NOT WORKED)"
+ 	Comment "Headset Mic capture"
 
 	ConflictingDevice [
-		"InternalMics"
 		"DigitalMics"
 	]
 
@@ -204,7 +200,10 @@ SectionDevice."HeadsetMic" {
 
 	DisableSequence [
 		cdev "hw:cherrytrailcrau"
-
+		cset "name='Stereo1 ADC L1 Mux' DAC MIX"
+		cset "name='Stereo1 ADC R1 Mux' DAC MIX"
+		cset "name='RECMIXL BST1 Switch' off"
+		cset "name='RECMIXR BST1 Switch' off"
 		cset "name='Sto1 ADC MIXL ADC1 Switch' off"
 		cset "name='Sto1 ADC MIXR ADC1 Switch' off"
 		cset "name='Headset Mic Switch' off"
@@ -212,43 +211,7 @@ SectionDevice."HeadsetMic" {
 
 	Value {
 		CaptureChannels "2"
-	}
-}
-
-SectionDevice."InternalMics" {
-	Comment "Internal Analog-Mics capture (NOT WORKED)"
-
-	ConflictingDevice [
-		"DigitalMics"
-		"HeadsetMic"
-	]
-
-	EnableSequence [
-		cdev "hw:cherrytrailcrau"
-
-		cset "name='Int Mic Switch' on"
-		cset "name='Sto1 ADC MIXL ADC2 Switch' on"
-		cset "name='Sto1 ADC MIXR ADC2 Switch' on"
-
-		cset "name='Mono ADC L1 Mux' ADC1"
-		cset "name='Mono ADC R1 Mux' Mono DAC MIXR"
-
-		cset "name='Mono ADC MIXL ADC1 Switch' on"
-		cset "name='Mono ADC MIXR ADC1 Switch' on"
-	]
-
-	DisableSequence [
-		cdev "hw:cherrytrailcrau"
-
-		cset "name='Sto1 ADC MIXL ADC2 Switch' off"
-		cset "name='Sto1 ADC MIXR ADC2 Switch' off"
-		cset "name='Int Mic Switch' off"
-		cset "name='Mono ADC MIXL ADC1 Switch' off"
-		cset "name='Mono ADC MIXR ADC1 Switch' off"
-	]
-
-	Value {
-		CaptureChannels "2"
+		JackControl "Headset Mic Jack"
 	}
 }
 
