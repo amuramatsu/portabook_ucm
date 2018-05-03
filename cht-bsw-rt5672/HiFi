@@ -1,0 +1,275 @@
+# Use case Configuration for portabook
+
+SectionVerb {
+
+	EnableSequence [
+		cdev "hw:chtbswrt5672"
+
+		# media mixer settings
+		cset "name='media0_in Gain 0 Switch' on"
+		cset "name='media0_in Gain 0 Volume' 80%"
+
+		# normal
+		cset "name='media1_in Gain 0 Switch' on"
+		cset "name='media1_in Gain 0 Volume' 0"
+		#   swm loopback
+		cset "name='media2_in Gain 0 Switch' off"
+		cset "name='media2_in Gain 0 Volume' 0%"
+		#   deep buffer
+		cset "name='media3_in Gain 0 Switch' on"
+		cset "name='media3_in Gain 0 Volume' 0%"
+
+		cset "name='media0_out mix 0 media0_in Switch' on"
+		cset "name='media0_out mix 0 media1_in Switch' on"
+		cset "name='media0_out mix 0 media2_in Switch' off"
+		cset "name='media0_out mix 0 media2_in Switch' on"
+
+		cset "name='media1_out mix 0 media0_in Switch' off"
+		cset "name='media1_out mix 0 media1_in Switch' off"
+		cset "name='media1_out mix 0 media2_in Switch' off"
+		cset "name='media1_out mix 0 media3_in Switch' off"
+
+		cset "name='pcm0_in Gain 0 Volume' 0"
+		cset "name='pcm0_in Gain 0 Switch' on"
+
+		cset "name='pcm1_in Gain 0 Volume' 0%"
+		cset "name='pcm1_in Gain 0 Switch' off"
+
+		# codec0_out settings (used if ssp2 is connected to aif1)
+		cset "name='codec_out0 mix 0 codec_in0 Switch' off"
+		cset "name='codec_out0 mix 0 codec_in1 Switch' off"
+		cset "name='codec_out0 mix 0 media_loop1_in Switch' off"
+		cset "name='codec_out0 mix 0 media_loop2_in Switch' off"
+		cset "name='codec_out0 mix 0 pcm0_in Switch' on"
+		cset "name='codec_out0 mix 0 pcm1_in Switch' off"
+		cset "name='codec_out0 mix 0 sprot_loop_in Switch' off"
+		cset "name='codec_out0 Gain 0 Volume' 0"
+		cset "name='codec_out0 Gain 0 Switch' on"
+
+		# input settings (input used when ssp2 is connected)
+		cset "name='codec_in0 Gain 0 Volume' 0"
+		cset "name='codec_in0 Gain 0 Switch' on"
+
+		cset "name='pcm1_out mix 0 codec_in0 Switch' on"
+		cset "name='pcm1_out mix 0 codec_in1 Switch' off"
+		cset "name='pcm1_out mix 0 media_loop1_in Switch' off"
+		cset "name='pcm1_out mix 0 media_loop2_in Switch' off"
+		cset "name='pcm1_out mix 0 pcm0_in Switch' off"
+		cset "name='pcm1_out mix 0 pcm1_in Switch' off"
+		cset "name='pcm1_out mix 0 sprot_loop_in Switch' off"
+
+		cset "name='pcm1_out Gain 0 Volume' 0"
+		cset "name='pcm1_out Gain 0 Switch' on"
+
+		# disable codec_out1
+		cset "name='codec_out1 mix 0 codec_in0 Switch' off"
+		cset "name='codec_out1 mix 0 codec_in1 Switch' off"
+		cset "name='codec_out1 mix 0 media_loop1_in Switch' off"
+		cset "name='codec_out1 mix 0 media_loop2_in Switch' off"
+		cset "name='codec_out1 mix 0 pcm0_in Switch' off"
+		cset "name='codec_out1 mix 0 pcm1_in Switch' off"
+		cset "name='codec_out1 mix 0 sprot_loop_in Switch' off"
+		cset "name='codec_out1 Gain 0 Switch' off"
+		cset "name='codec_out1 Gain 0 Volume' 0%"
+
+		# disable codec_in1
+		cset "name='codec_in1 Gain 0 Switch' off"
+		cset "name='codec_in1 Gain 0 Volume' 0%"
+
+		# disable all loops
+		cset "name='media_loop1_out mix 0 codec_in0 Switch' off"
+		cset "name='media_loop1_out mix 0 codec_in1 Switch' off"
+		cset "name='media_loop1_out mix 0 media_loop1_in Switch' off"
+		cset "name='media_loop1_out mix 0 media_loop2_in Switch' off"
+		cset "name='media_loop1_out mix 0 pcm0_in Switch' off"
+		cset "name='media_loop1_out mix 0 pcm1_in Switch' off"
+		cset "name='media_loop1_out mix 0 sprot_loop_in Switch' off"
+
+		cset "name='media_loop2_out mix 0 codec_in0 Switch' off"
+		cset "name='media_loop2_out mix 0 codec_in1 Switch' off"
+		cset "name='media_loop2_out mix 0 media_loop1_in Switch' off"
+		cset "name='media_loop2_out mix 0 media_loop2_in Switch' off"
+		cset "name='media_loop2_out mix 0 pcm0_in Switch' off"
+		cset "name='media_loop2_out mix 0 pcm1_in Switch' off"
+		cset "name='media_loop2_out mix 0 sprot_loop_in Switch' off"
+
+		cset "name='sprot_loop_out mix 0 codec_in0 Switch' off"
+		cset "name='sprot_loop_out mix 0 codec_in1 Switch' off"
+		cset "name='sprot_loop_out mix 0 media_loop1_in Switch' off"
+		cset "name='sprot_loop_out mix 0 media_loop2_in Switch' off"
+		cset "name='sprot_loop_out mix 0 pcm0_in Switch' off"
+		cset "name='sprot_loop_out mix 0 pcm1_in Switch' off"
+		cset "name='sprot_loop_out mix 0 sprot_loop_in Switch' off"
+
+		# RT5672 default output routing
+		cset "name='codec_out tx interleaver slot 0' codec_out0_0"
+		cset "name='codec_out tx interleaver slot 1' codec_out0_1"
+		cset "name='codec_out tx interleaver slot 2' codec_out1_0"
+		cset "name='codec_out tx interleaver slot 3' codec_out1_1"
+		cset "name='codec_in rx deinterleaver codec_in0_0' slot 0"
+		cset "name='codec_in rx deinterleaver codec_in0_1' slot 1"
+		cset "name='codec_in rx deinterleaver codec_in1_0' slot 2"
+		cset "name='codec_in rx deinterleaver codec_in1_1' slot 3"
+
+		cset "name='DAC1 Playback Volume' 100%"
+		cset "name='Mono DAC Playback Volume' 0"
+
+		cset "name='ADC Capture Switch' on"
+
+		cset "name='Int Mic Switch' off"
+
+		# Speakers
+		cset "name='Ext Spk Switch' off"
+
+		cset "name='DAC1 MIXL DAC1 Switch' on"
+		cset "name='DAC1 MIXR DAC1 Switch' on"
+		cset "name='Mono DAC MIXL DAC L1 Switch' off"
+		cset "name='Mono DAC MIXR DAC R1 Switch' off"
+
+		# Headphones
+		cset "name='Headphone Switch' off"
+		cset "name='Headset Mic Switch' off"
+
+		cset "name='Stereo DAC MIXL DAC L1 Switch' off"
+		cset "name='Stereo DAC MIXR DAC R1 Switch' off"
+
+		cset "name='HP Playback Volume' 60%"
+		cset "name='HP Playback Switch' on"
+		cset "name='HPO MIX DAC1 Switch' off"
+		cset "name='HPO MIX HPVOL Switch' on"
+		cset "name='HPOVOL MIXL DAC1 Switch' on"
+		cset "name='HPOVOL MIXR DAC1 Switch' on"
+	]
+
+	DisableSequence [
+	]
+
+	# ALSA PCM
+	Value {
+		# ALSA PCM device for HiFi
+		PlaybackPCM "hw:chtbswrt5672"
+		CapturePCM "hw:chtbswrt5672"
+	}
+}
+
+SectionDevice."DigitalMics" {
+ 	Comment "Internal Digital-Mics capture"
+ 	ConflictingDevice [
+ 		"HeadsetMic"
+ 	]
+
+ 	EnableSequence [
+ 		cdev "hw:chtbswrt5672"
+		cset "name='Stereo1 ADC L2 Mux' DMIC"
+		cset "name='Stereo1 ADC R2 Mux' DMIC"
+		cset "name='Stereo1 DMIC Mux' DMIC2"
+		cset "name='Int Mic Switch' on"
+ 	]
+
+ 	DisableSequence [
+ 		cdev "hw:chtbswrt5672"
+		cset "name='Stereo1 ADC L2 Mux' DAC MIX"
+		cset "name='Stereo1 ADC R2 Mux' DAC MIX"
+		cset "name='Int Mic Switch' off"
+ 	]
+
+	Value {
+		CaptureChannels "1"
+	}
+}
+
+SectionDevice."HeadsetMic" {
+ 	Comment "Headset Mic capture"
+
+	ConflictingDevice [
+		"DigitalMics"
+	]
+
+	EnableSequence [
+		cdev "hw:chtbswrt5672"
+
+		cset "name='Headset Mic Switch' on"
+		cset "name='Stereo1 ADC L1 Mux' ADC"
+		cset "name='Stereo1 ADC R1 Mux' ADC"
+		# default for IN2 Boost seems to saturate
+		cset "name='RECMIXL BST1 Switch' on"
+		cset "name='RECMIXR BST1 Switch' on"
+		cset "name='Sto1 ADC MIXL ADC1 Switch' on"
+		cset "name='Sto1 ADC MIXR ADC1 Switch' on"
+	]
+
+	DisableSequence [
+		cdev "hw:chtbswrt5672"
+		cset "name='Stereo1 ADC L1 Mux' DAC MIX"
+		cset "name='Stereo1 ADC R1 Mux' DAC MIX"
+		cset "name='RECMIXL BST1 Switch' off"
+		cset "name='RECMIXR BST1 Switch' off"
+		cset "name='Sto1 ADC MIXL ADC1 Switch' off"
+		cset "name='Sto1 ADC MIXR ADC1 Switch' off"
+		cset "name='Headset Mic Switch' off"
+	]
+
+	Value {
+		CaptureChannels "2"
+		JackControl "Headset Mic Jack"
+	}
+}
+
+SectionDevice."Speaker" {
+	Comment "Speaker playback"
+
+	ConflictingDevice [
+		"Headphones"
+	]
+
+	EnableSequence [
+		cdev "hw:chtbswrt5672"
+
+		cset "name='DAC1 MIXL DAC1 Switch' on"
+		cset "name='DAC1 MIXR DAC1 Switch' on"
+		cset "name='Mono DAC MIXL DAC L1 Switch' on"
+		cset "name='Mono DAC MIXR DAC R1 Switch' on"
+		cset "name='Ext Spk Switch' on"
+	]
+
+	DisableSequence [
+		cdev "hw:chtbswrt5672"
+
+		cset "name='Ext Spk Switch' off"
+		cset "name='Mono DAC MIXL DAC L1 Switch' off"
+		cset "name='Mono DAC MIXR DAC R1 Switch' off"
+	]
+
+	Value {
+		PlaybackChannels "2"
+	}
+}
+
+SectionDevice."Headphones" {
+	Comment "Headphones playback"
+
+	ConflictingDevice [
+		"Speaker"
+	]
+
+	EnableSequence [
+		cdev "hw:chtbswrt5672"
+
+		cset "name='Stereo DAC MIXL DAC L1 Switch' on"
+		cset "name='Stereo DAC MIXR DAC R1 Switch' on"
+		cset "name='Headphone Switch' on"
+	]
+
+	DisableSequence [
+		cdev "hw:chtbswrt5672"
+
+		cset "name='Headphone Switch' off"
+		cset "name='Stereo DAC MIXL DAC L1 Switch' off"
+		cset "name='Stereo DAC MIXR DAC R1 Switch' off"
+	]
+
+	Value {
+		PlaybackChannels "2"
+		JackControl "Headphone Jack"
+	}
+}

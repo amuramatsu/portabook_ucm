@@ -19,9 +19,13 @@ KINGJIMのポータブック XMC10 で、linux 上で pulseaudio を使って音
 
 * ヘッドフォンジャックの状態は無視されます。
 
-  - つまり、ヘッドフォンとスピーカは手動で変更する必要があります。
+  - つまり、ヘッドフォンとスピーカは手動で変更する必要があります。
   
 ディレクトリの内容は、以下の通りです。
+
+* cht-bsw-rt5672
+
+  Kernel 4.15 用（デバイス名が変更されています）
 
 * cherrytrailcraudio
 
@@ -29,4 +33,4 @@ KINGJIMのポータブック XMC10 で、linux 上で pulseaudio を使って音
 
 * cherrytrailcraudio44
 
-  Kernel 4.4 用（いくつかの mute / volume 設定が反転しています）
+  Kernel 4.4 用（いくつかの mute / volume 設定が反転しています）
