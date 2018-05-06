@@ -160,16 +160,14 @@ SectionDevice."DigitalMics" {
 
  	EnableSequence [
  		cdev "hw:chtbswrt5672"
-		cset "name='Stereo1 ADC L2 Mux' DMIC"
-		cset "name='Stereo1 ADC R2 Mux' DMIC"
+		cset "name='Stereo1 ADC 2 Mux' DMIC"
 		cset "name='Stereo1 DMIC Mux' DMIC2"
 		cset "name='Int Mic Switch' on"
  	]
 
  	DisableSequence [
  		cdev "hw:chtbswrt5672"
-		cset "name='Stereo1 ADC L2 Mux' DAC MIX"
-		cset "name='Stereo1 ADC R2 Mux' DAC MIX"
+		cset "name='Stereo1 ADC 2 Mux' DAC MIX"
 		cset "name='Int Mic Switch' off"
  	]
 
@@ -189,8 +187,7 @@ SectionDevice."HeadsetMic" {
 		cdev "hw:chtbswrt5672"
 
 		cset "name='Headset Mic Switch' on"
-		cset "name='Stereo1 ADC L1 Mux' ADC"
-		cset "name='Stereo1 ADC R1 Mux' ADC"
+		cset "name='Stereo1 ADC 1 Mux' ADC"
 		# default for IN2 Boost seems to saturate
 		cset "name='RECMIXL BST1 Switch' on"
 		cset "name='RECMIXR BST1 Switch' on"
@@ -200,8 +197,7 @@ SectionDevice."HeadsetMic" {
 
 	DisableSequence [
 		cdev "hw:chtbswrt5672"
-		cset "name='Stereo1 ADC L1 Mux' DAC MIX"
-		cset "name='Stereo1 ADC R1 Mux' DAC MIX"
+		cset "name='Stereo1 ADC 1 Mux' DAC MIX"
 		cset "name='RECMIXL BST1 Switch' off"
 		cset "name='RECMIXR BST1 Switch' off"
 		cset "name='Sto1 ADC MIXL ADC1 Switch' off"
