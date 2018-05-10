@@ -9,18 +9,38 @@ KINGJIMのポータブック XMC10 で、linux 上で pulseaudio を使って音
 * https://github.com/amuramatsu/debian-kernel-mod/tree/portabook (kernel 4.4用）
 * https://github.com/amuramatsu/debian-kernel-mod/tree/portabook-kernel-4.8 (kernel 4.8用）
 
-にあります。
+に、Ubuntu 18.04 用は
+
+* https://github.com/amuramatsu/debian-kernel-mod/tree/portabook-ubuntu-kernel-4.15
+
+に、あります。
 
 今のところ、
 
 * スピーカ、ヘッドフォンから再生ができます。
 
-* 内蔵マイク、ヘッドセットから録音できます 。（kernel 4.8用のみ動作確認済み、4.4用は未確認）
+* 内蔵マイク、ヘッドセットから録音できます 。（kernel 4.8用以降で動作確認済み、4.4用は未確認）
 
-* ヘッドフォンジャックの状態は無視されます。
+* カーネルによっては、ヘッドフォンジャックの状態は無視されます。
 
-  - つまり、ヘッドフォンとスピーカは手動で変更する必要があります。
+  - Ubuntu 18.04 のカーネルではヘッドフォン切り替えがうまく行きます。
   
+  - ヘッドフォンを刺しても切り替わらない場合は、ヘッドフォンとスピーカは手動で変更する必要があります。
+
+pulseaudio のバージョンによっては、 `/etc/pulse/default.pa` に
+```
+# kernel 4.15 or later
+load-module module-alsa-card device_id=chtbswrt5672 use_ucm=true
+
+```
+もしくは、
+```
+# kernel 4.14 or earler
+load-module module-alsa-card device_id=cherrytrailcrau use_ucm=true
+```
+と書くと、 pavucontrol などで入出力先の選択ができるようになります。
+
+
 ディレクトリの内容は、以下の通りです。
 
 * cht-bsw-rt5672
