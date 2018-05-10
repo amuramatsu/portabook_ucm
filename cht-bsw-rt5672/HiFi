@@ -162,12 +162,16 @@ SectionDevice."DigitalMics" {
  		cdev "hw:chtbswrt5672"
 		cset "name='Stereo1 ADC 2 Mux' DMIC"
 		cset "name='Stereo1 DMIC Mux' DMIC2"
+		cset "name='Sto1 ADC MIXL ADC2 Switch' on"
+		cset "name='Sto1 ADC MIXR ADC2 Switch' on"
 		cset "name='Int Mic Switch' on"
  	]
 
  	DisableSequence [
  		cdev "hw:chtbswrt5672"
 		cset "name='Stereo1 ADC 2 Mux' DAC MIX"
+		cset "name='Sto1 ADC MIXL ADC2 Switch' off"
+		cset "name='Sto1 ADC MIXR ADC2 Switch' off"
 		cset "name='Int Mic Switch' off"
  	]
 
